@@ -1,0 +1,156 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="DatabaseModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="bicycle">
+    <Key>
+      <PropertyRef Name="Bicycle_Number" />
+    </Key>
+    <Property Name="Bicycle_Number" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Bicycle_ModelID" Type="Int32" Nullable="false" />
+    <Property Name="Bicycle_Size" Type="Int32" Nullable="false" />
+    <Property Name="Bicycle_LastService" Type="DateTime" Precision="0" />
+    <Property Name="Bicycle_CheckedStatus" Type="Binary" MaxLength="1" FixedLength="true" />
+    <NavigationProperty Name="bmodel" Relationship="Self.FK_bicycles_Model" FromRole="bicycle" ToRole="bmodel" />
+    <NavigationProperty Name="rentals" Relationship="Self.FK_rentals_Bicycle_Number" FromRole="bicycle" ToRole="rental" />
+  </EntityType>
+  <EntityType Name="bmodel">
+    <Key>
+      <PropertyRef Name="Model_ID" />
+    </Key>
+    <Property Name="Model_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Model_Type" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="bicycles" Relationship="Self.FK_bicycles_Model" FromRole="bmodel" ToRole="bicycle" />
+  </EntityType>
+  <EntityType Name="employee">
+    <Key>
+      <PropertyRef Name="Employee_Number" />
+    </Key>
+    <Property Name="Employee_Number" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Employee_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Employee_Surname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Employee_AccessLevel" Type="Int32" Nullable="false" />
+    <Property Name="Employee_RoleID" Type="Int32" Nullable="false" />
+    <Property Name="Employee_Password" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="role" Relationship="Self.FK_employees_Role" FromRole="employee" ToRole="role" />
+    <NavigationProperty Name="rentals" Relationship="Self.FK_rentals_Employee_Number" FromRole="employee" ToRole="rental" />
+  </EntityType>
+  <EntityType Name="rental">
+    <Key>
+      <PropertyRef Name="Rental_Number" />
+    </Key>
+    <Property Name="Rental_Number" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Student_Number" Type="String" MaxLength="8" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="Employee_Number" Type="Int32" Nullable="false" />
+    <Property Name="Bicycle_Number" Type="Int32" Nullable="false" />
+    <Property Name="Rental_CheckOutTime" Type="DateTime" Precision="0" />
+    <Property Name="Rental_CheckInTime" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="bicycle" Relationship="Self.FK_rentals_Bicycle_Number" FromRole="rental" ToRole="bicycle" />
+    <NavigationProperty Name="employee" Relationship="Self.FK_rentals_Employee_Number" FromRole="rental" ToRole="employee" />
+    <NavigationProperty Name="student" Relationship="Self.FK_rentals_Student_Number" FromRole="rental" ToRole="student" />
+  </EntityType>
+  <EntityType Name="role">
+    <Key>
+      <PropertyRef Name="Role_ID" />
+    </Key>
+    <Property Name="Role_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Role_Description" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="employees" Relationship="Self.FK_employees_Role" FromRole="role" ToRole="employee" />
+  </EntityType>
+  <EntityType Name="student">
+    <Key>
+      <PropertyRef Name="Student_Number" />
+    </Key>
+    <Property Name="Student_Number" Type="String" MaxLength="8" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="Student_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Student_Surname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Student_Rating" Type="Int32" />
+    <NavigationProperty Name="rentals" Relationship="Self.FK_rentals_Student_Number" FromRole="student" ToRole="rental" />
+  </EntityType>
+  <Association Name="FK_bicycles_Model">
+    <End Role="bmodel" Type="Self.bmodel" Multiplicity="1" />
+    <End Role="bicycle" Type="Self.bicycle" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="bmodel">
+        <PropertyRef Name="Model_ID" />
+      </Principal>
+      <Dependent Role="bicycle">
+        <PropertyRef Name="Bicycle_ModelID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_rentals_Bicycle_Number">
+    <End Role="bicycle" Type="Self.bicycle" Multiplicity="1" />
+    <End Role="rental" Type="Self.rental" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="bicycle">
+        <PropertyRef Name="Bicycle_Number" />
+      </Principal>
+      <Dependent Role="rental">
+        <PropertyRef Name="Bicycle_Number" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_employees_Role">
+    <End Role="role" Type="Self.role" Multiplicity="1" />
+    <End Role="employee" Type="Self.employee" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="role">
+        <PropertyRef Name="Role_ID" />
+      </Principal>
+      <Dependent Role="employee">
+        <PropertyRef Name="Employee_RoleID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_rentals_Employee_Number">
+    <End Role="employee" Type="Self.employee" Multiplicity="1" />
+    <End Role="rental" Type="Self.rental" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="employee">
+        <PropertyRef Name="Employee_Number" />
+      </Principal>
+      <Dependent Role="rental">
+        <PropertyRef Name="Employee_Number" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_rentals_Student_Number">
+    <End Role="student" Type="Self.student" Multiplicity="1" />
+    <End Role="rental" Type="Self.rental" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="student">
+        <PropertyRef Name="Student_Number" />
+      </Principal>
+      <Dependent Role="rental">
+        <PropertyRef Name="Student_Number" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="DatabaseEntitiesCon" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="bicycles" EntityType="Self.bicycle" />
+    <EntitySet Name="bmodels" EntityType="Self.bmodel" />
+    <EntitySet Name="employees" EntityType="Self.employee" />
+    <EntitySet Name="rentals" EntityType="Self.rental" />
+    <EntitySet Name="roles" EntityType="Self.role" />
+    <EntitySet Name="students" EntityType="Self.student" />
+    <AssociationSet Name="FK_bicycles_Model" Association="Self.FK_bicycles_Model">
+      <End Role="bmodel" EntitySet="bmodels" />
+      <End Role="bicycle" EntitySet="bicycles" />
+    </AssociationSet>
+    <AssociationSet Name="FK_rentals_Bicycle_Number" Association="Self.FK_rentals_Bicycle_Number">
+      <End Role="bicycle" EntitySet="bicycles" />
+      <End Role="rental" EntitySet="rentals" />
+    </AssociationSet>
+    <AssociationSet Name="FK_employees_Role" Association="Self.FK_employees_Role">
+      <End Role="role" EntitySet="roles" />
+      <End Role="employee" EntitySet="employees" />
+    </AssociationSet>
+    <AssociationSet Name="FK_rentals_Employee_Number" Association="Self.FK_rentals_Employee_Number">
+      <End Role="employee" EntitySet="employees" />
+      <End Role="rental" EntitySet="rentals" />
+    </AssociationSet>
+    <AssociationSet Name="FK_rentals_Student_Number" Association="Self.FK_rentals_Student_Number">
+      <End Role="student" EntitySet="students" />
+      <End Role="rental" EntitySet="rentals" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

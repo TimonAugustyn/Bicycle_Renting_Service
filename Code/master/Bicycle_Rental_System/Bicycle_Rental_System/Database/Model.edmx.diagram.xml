@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="c81623f6d81340da83df17971a7a2e06" Name="Diagram1">
+        <EntityTypeShape EntityType="databaseEntities.bicycle" Width="1.5" PointX="3" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="databaseEntities.bmodel" Width="1.5" PointX="0.75" PointY="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="databaseEntities.employee" Width="1.5" PointX="7.25" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="databaseEntities.rental" Width="1.5" PointX="5.25" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="databaseEntities.role" Width="1.5" PointX="9.125" PointY="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="databaseEntities.student" Width="1.5" PointX="5.25" PointY="4.625" IsExpanded="true" />
+        <AssociationConnector Association="databaseEntities.FK_bicycles_Model" ManuallyRouted="false" />
+        <AssociationConnector Association="databaseEntities.FK_rentals_Bicycle_Number" ManuallyRouted="false" />
+        <AssociationConnector Association="databaseEntities.FK_employees_Role" ManuallyRouted="false" />
+        <AssociationConnector Association="databaseEntities.FK_rentals_Employee_Number" ManuallyRouted="false" />
+        <AssociationConnector Association="databaseEntities.FK_rentals_Student_Number" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

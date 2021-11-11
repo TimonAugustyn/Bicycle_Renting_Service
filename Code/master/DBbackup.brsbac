@@ -1,0 +1,93 @@
+92
+model,7,Scott
+model,8,Giant
+model,9,Yeti
+model,10,Bianchi
+model,11,Surly
+model,12,Trek
+model,13,Raleigh
+model,14,GT
+model,15,Cannodale
+model,16,Merida
+model,17,Fuji
+model,18,Cervelo
+model,19,Pinarello
+model,20,Colnago
+model,21,Kona
+model,22,Orbea
+model,23,BMX
+model,24,Blade
+model,25,Triban
+model,26,Genesis
+bicycle,5,8,13,,True
+bicycle,6,7,15,,True
+bicycle,7,22,21,,True
+bicycle,8,9,23,,True
+bicycle,9,10,14,,True
+bicycle,10,11,16,,True
+bicycle,11,12,19,,True
+bicycle,12,14,20,,True
+bicycle,13,16,20,,True
+bicycle,15,20,16,,True
+bicycle,16,18,16,,True
+bicycle,17,13,15,,True
+bicycle,18,15,20,,True
+bicycle,19,17,23,,True
+bicycle,20,21,23,,True
+bicycle,21,26,17,,True
+bicycle,22,19,14,,True
+bicycle,23,25,19,,True
+bicycle,24,23,20,,True
+bicycle,26,24,23,,True
+bicycle,27,8,23,,True
+bicycle,28,24,17,,True
+bicycle,29,20,21,,True
+bicycle,30,18,13,,True
+bicycle,32,14,18,,True
+bicycle,33,26,21,,True
+bicycle,34,24,21,,True
+bicycle,35,22,15,,True
+bicycle,36,19,15,,True
+bicycle,37,26,23,,True
+bicycle,38,9,13,,True
+bicycle,39,7,13,,True
+bicycle,40,7,16,,True
+bicycle,41,11,19,,True
+bicycle,42,12,20,,True
+bicycle,44,12,14,,True
+role,1,Admin
+role,2,Office Manager
+role,3,POS Operator
+role,4,Maintanance Staff
+role,5,Receptionist
+role,6,Bookkeeper
+role,7,Branch Manager
+role,8,Admin
+employee,2,WJ,van Zyl,1,1,2
+employee,3,Brenden,Greeff,1,7,asdfghjkl
+employee,4,Austin,Gronbeck,2,6,zxcvbnm
+employee,5,Timon,Augustyn,3,2,poiuytrewq
+employee,6,Francois ,Kruger,4,3,lkjhgfdsa
+employee,7,Marnus,Enslin,5,5,mnbvcxz
+employee,8,Efraim ,Steenberg,5,5,1234567890
+employee,9,Franco ,Schumyn,2,4,0987654321
+student,00000001,Ane,Schumyn,
+student,00000002,Lara,Otto,9
+student,00000003,Leonard,de Jager,
+student,00000004,Nick,de Jager,
+student,00000005,Marius,Lubbe,
+student,00000006,Niel ,Foxcroft,
+student,00000007,Jason,Mini,
+student,00000008,Waldo,Kloppers,
+student,00000009,Anzelle,Steenberg,
+student,00000010,Niel,Steenberg,
+student,00000011,Gustav,Prinsloo,
+student,00000012,Milan,Dutoit,
+student,00000013,Ben,Jordaan,
+student,00000014,Rheinardt,Estabeth,8
+student,00000015,Jolani,Bushuidenhoud,
+student,00000016,Xandri,Oosthuizen,
+student,00000017,Christine ,Erasmus,
+student,00000018,Johan,Smit,
+student,00000019,Jacque,Hamman,
+student,00000020,Erik,Koekemoer,

@@ -1,0 +1,66 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="databaseEntitiesStoreContainer" CdmEntityContainer="BicycleRentalSystemEntities">
+    <EntitySetMapping Name="bicycles">
+      <EntityTypeMapping TypeName="databaseEntities.bicycle">
+        <MappingFragment StoreEntitySet="bicycle">
+          <ScalarProperty Name="Bicycle_Number" ColumnName="Bicycle_Number" />
+          <ScalarProperty Name="Bicycle_ModelID" ColumnName="Bicycle_ModelID" />
+          <ScalarProperty Name="Bicycle_Size" ColumnName="Bicycle_Size" />
+          <ScalarProperty Name="Bicycle_LastService" ColumnName="Bicycle_LastService" />
+          <ScalarProperty Name="Bicycle_CheckedStatus" ColumnName="Bicycle_CheckedStatus" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="bmodels">
+      <EntityTypeMapping TypeName="databaseEntities.bmodel">
+        <MappingFragment StoreEntitySet="bmodel">
+          <ScalarProperty Name="Model_ID" ColumnName="Model_ID" />
+          <ScalarProperty Name="Model_Type" ColumnName="Model_Type" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="employees">
+      <EntityTypeMapping TypeName="databaseEntities.employee">
+        <MappingFragment StoreEntitySet="employee">
+          <ScalarProperty Name="Employee_Number" ColumnName="Employee_Number" />
+          <ScalarProperty Name="Employee_Name" ColumnName="Employee_Name" />
+          <ScalarProperty Name="Employee_Surname" ColumnName="Employee_Surname" />
+          <ScalarProperty Name="Employee_AccessLevel" ColumnName="Employee_AccessLevel" />
+          <ScalarProperty Name="Employee_RoleID" ColumnName="Employee_RoleID" />
+          <ScalarProperty Name="Employee_Password" ColumnName="Employee_Password" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="rentals">
+      <EntityTypeMapping TypeName="databaseEntities.rental">
+        <MappingFragment StoreEntitySet="rental">
+          <ScalarProperty Name="Rental_Number" ColumnName="Rental_Number" />
+          <ScalarProperty Name="Student_Number" ColumnName="Student_Number" />
+          <ScalarProperty Name="Employee_Number" ColumnName="Employee_Number" />
+          <ScalarProperty Name="Bicycle_Number" ColumnName="Bicycle_Number" />
+          <ScalarProperty Name="Rental_CheckOutTime" ColumnName="Rental_CheckOutTime" />
+          <ScalarProperty Name="Rental_CheckInTime" ColumnName="Rental_CheckInTime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="roles">
+      <EntityTypeMapping TypeName="databaseEntities.role">
+        <MappingFragment StoreEntitySet="role">
+          <ScalarProperty Name="Role_ID" ColumnName="Role_ID" />
+          <ScalarProperty Name="Role_Description" ColumnName="Role_Description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="students">
+      <EntityTypeMapping TypeName="databaseEntities.student">
+        <MappingFragment StoreEntitySet="student">
+          <ScalarProperty Name="Student_Number" ColumnName="Student_Number" />
+          <ScalarProperty Name="Student_Name" ColumnName="Student_Name" />
+          <ScalarProperty Name="Student_Surname" ColumnName="Student_Surname" />
+          <ScalarProperty Name="Student_Rating" ColumnName="Student_Rating" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
